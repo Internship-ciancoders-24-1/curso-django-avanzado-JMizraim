@@ -11,3 +11,17 @@ Instrucciones:
   agregar captura de pantalla de la ejecución de los  ejercicios si fuera el caso.
 
 enlace: [Django avanzado)('https://drive.google.com/drive/folders/133Vo3JXCwm8ZLpe293Zl8i2S1xvHC6xr?usp=sharing')
+
+# cride
+A project from Platzi
+=======
+![]('./logo/cride_logo.png')
+![](https://img.shields.io/github/stars/pandao/editor.md.svg) 
+
+Levantar el proyecto:
+
+ir a la carpeta cride
+1. crear las imagenes 
+`docker-compose -f .\local.yml build`
+2. levantar el servidor y servicios 
+`docker-compose -f .\local.yml up`
