@@ -11,7 +11,7 @@ env = environ.Env()
 DEBUG = env.bool('DJANGO_DEBUG', False)
 
 # Language and timezone
-TIME_ZONE = 'America/Lima'
+TIME_ZONE = 'America/Mexico_City'
 LANGUAGE_CODE = 'en-us'
 SITE_ID = 1
 USE_I18N = True
@@ -30,9 +30,6 @@ ROOT_URLCONF = 'config.urls'
 # WSGI
 WSGI_APPLICATION = 'config.wsgi.application'
 
-# Users & Authentication
-AUTH_USER_MODEL = 'users.User'
-
 # Apps
 DJANGO_APPS = [
     'django.contrib.auth',
@@ -44,14 +41,8 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    'rest_framework',
-    'rest_framework.authtoken',
-    'django_filters'
 ]
 LOCAL_APPS = [
-    'cride.users.apps.UsersAppConfig',
-    'cride.circles.apps.CirclesAppConfig',
-    'cride.rides.apps.RidesAppConfig',
 ]
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -143,11 +134,9 @@ EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.s
 # Admin
 ADMIN_URL = 'admin/'
 ADMINS = [
-    ("""Franklin Garcia""", 'fm-garcia@outlook.com'),
+    ("""Pablo Trinidad""", 'pablotrinidad@ciencias.unam.mx'),
 ]
 MANAGERS = ADMINS
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Celery
 INSTALLED_APPS += ['cride.taskapp.celery.CeleryAppConfig']
@@ -160,16 +149,3 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERYD_TASK_TIME_LIMIT = 5 * 60
 CELERYD_TASK_SOFT_TIME_LIMIT = 60
-
-# Django REST Framework
-REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.JSONRenderer',
-        'rest_framework.renderers.BrowsableAPIRenderer'
-    ),
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
-    ),
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 10,
-}
