@@ -9,5 +9,6 @@ def load_data():
             reader = csv.DictReader(csv_file)
             for row in reader:
                 Circle.objects.create(**row)
+        print("Datos cargados correctamente")
     except Exception as e:
         print("Algo salió mal :(", e)

@@ -25,4 +25,4 @@ class Profile (CRideModel):
     
     def __str__(self):
         """Return user's str representation"""
-        return self.user
+        return str(self.user)
